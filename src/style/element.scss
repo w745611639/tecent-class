@@ -1,0 +1,19 @@
+@mixin panel($size: 28px, $bgcolor: #fff, $padding: 0 0 0 26px, $color: #000) {
+	padding: $padding;
+	background-color: $bgcolor;
+	font-size: $size;
+	color: $color;
+	> h2 {
+		font-size: 32px;
+		height: 44px;
+		margin-bottom: 12px;
+		line-height: 44px;
+		text-align: center;
+		color: #777;
+	}
+}
+
+@mixin list($direction: column) {
+	display: flex;
+	flex-direction: $direction;
+}
