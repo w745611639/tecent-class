@@ -1,13 +1,15 @@
 <template>
-	<section :class="cname">
-		<swiper :class="$style.swipers">
-			<swiperSlide 
-				:class="$style.slides" 
+	<section>
+		<swiper 
+			:options="options"
+			:not-next-tick="options.notnextTick"
+			>
+			<swiper-slide 
 				v-for="item in slides"
 				:key="item.text"
 			>
 				<router-link :to="{path: '/home', query: {course: item.text}}">{{item.text}}</router-link>
-			</swiperSlide>
+			</swiper-slide>
 		</swiper>	
 	</section>
 	
@@ -31,7 +33,13 @@ export default {
 			type: Object,
 			default () {
 				return {
-					
+					autoplay: true,
+					autoplayDisableOnInteraction : false,
+					loop: true,
+					pagination: {
+						el: '.swiper-pagination'
+					},
+					notNextTick: false
 				}
 			}
 		},
@@ -53,39 +61,4 @@ export default {
 <style lang="scss">
 	@import '~swiper/dist/css/swiper.css';
 	
-</style>
-<style lang="scss" module>
-	.swipers {
-		width: 520px;
-		height: 92px;
-		margin: 0;
-		line-height: 92px;
-		text-align: center;
-		.slides {
-			position: relative;
-			width: auto !important;
-			height: 100%;
-			margin-right: 60px;
-			font-size: 28px;
-			&:hover {
-				font-size: 56px;
-				&::before {
-					content: '.';
-					position: absolute;
-					bottom: 10px;
-					left: 0;
-					right: 0;
-					width: 8px;
-					height: 8px;
-					border-radius: 50%;
-					background-color: #23b8ff;
-					margin: auto;
-				}
-			}
-			a {
-				text-decoration: none;
-				color: #000;
-			}
-		}
-	}
 </style>

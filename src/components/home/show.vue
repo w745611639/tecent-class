@@ -29,7 +29,16 @@
 		},
 		data () {
 			return {
-				data: []
+				data: [],
+				options: {
+		          slidesPerView: 2.3,
+		          spaceBetween: 30,
+		          freeMode: true,
+		          pagination: {
+		            // el: '.swiper-pagination',
+		            clickable: true
+        		  }
+				}
 			}
 		},
 		watch: {
