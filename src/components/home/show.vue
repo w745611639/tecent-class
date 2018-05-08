@@ -46,7 +46,6 @@
 				this.data = this.$store.state.data.filter(ele => this.$route.query.course === ele.id)[0];
 			}
 		}
-
     }
 </script>
 
